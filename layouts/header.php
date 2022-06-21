@@ -6,6 +6,11 @@ include_once('./db/database.php');
 $db = new Database();
 $sql = "select * from categories";
 $menuItems = $db->executeResult($sql);
+
+if(!isset($_SESSION["isLogin"]) || empty($_SESSION["isLogin"])){
+	$_SESSION["isLogin"] = 0;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -137,6 +142,40 @@ $menuItems = $db->executeResult($sql);
 			z-index: 99;
 		}
 
+		.nav-item{
+			position: relative;
+			display: flex;
+			align-items: center;
+		}
+		.nav-item img{
+			
+			width: 25px;
+			height: 25px;
+		}
+		.nav-item-sub{
+			position: absolute;
+			top: 20px;
+			left: -18px;
+			width: 250px;
+			list-style: none;
+			display: none;
+			z-index: 100;
+		}
+		.nav-item-sub::after{
+			position: absolute;
+			display: block;
+			content: "";
+			width: 250px;
+			height: 30px;
+			top: -10px;
+			left: 0;
+		}
+		.nav-item-sub li{
+			font-size: 14px;
+		}
+		.nav-item:hover .nav-item-sub{
+			display: block;
+		}
 		footer {
 			margin-top: 30px;
 		}
@@ -148,7 +187,7 @@ $menuItems = $db->executeResult($sql);
 	<ul class="nav" style="width: 100%;align-items:center;justify-content:center;padding:20px 0;">
 			<li class="nav-item" style="margin-top: 0px !important;">
 				<!-- <a href="index.php"><img src="https://t004.gokisoft.com/uploads/2021/07/1-s-1636-logo-web.jpg" style="height: 80px;"></a> -->
-				<a href="index.php"><img src="./logo1.png" style="height: 50px;"></a>
+				<a href="index.php"><img src="./logo1.png" style="height: 50px; width:100px"></a>
 			</li>
 			<?php
 			foreach ($menuItems as $item) {
@@ -159,6 +198,28 @@ $menuItems = $db->executeResult($sql);
 			?>
 			<li class="nav-item">
 				    <a class="nav-link" href="contact.php">Liên Lạc</a>
+			</li>
+			<li class="nav-item">
+					<?php 
+
+					if($_SESSION["isLogin"]== 0){
+						echo '<a class="nav-link" href="login.php">Đăng nhập</a>';
+					}
+					else{
+						echo '
+						<img src="http://windows79.com/wp-content/uploads/2021/02/Thay-the-hinh-dai-dien-tai-khoan-nguoi-dung-mac.png" alt="">
+						<div class="name">TÀI KHOẢN</d>
+						<ul class="nav-item-sub">
+							<li>
+								<a href="#">Thông tin cá nhân</a>
+							</li>
+							<li>
+								<a href="http://localhost/Web_BanHang_PHP/logout.php">Đăng suất</a>
+							</li>
+						</ul>';
+					}
+					?>
+				    
 			</li>
 		</ul>
 	<!-- Menu Stop -->
