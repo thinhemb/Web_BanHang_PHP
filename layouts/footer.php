@@ -5,7 +5,7 @@
 				<h4>GIỚI THIỆU</h4>
 				<ul>
 					<li>LIÊN HỆ CÔNG TY CỔ PHẦN SPORTSTORE</li>
-					<li><i class="bi bi-mailbox2"></i> Nhom_5@gmail.com</li>
+					<li><i class="bi bi-mailbox2"></i> Nhom5@gmail.com</li>
 					<li><i class="bi bi-telephone-fill"></i> 123456789</li>
 					<li><i class="bi bi-map-fill"></i> Ha Noi, Viet Nam</li>
 					<li>Chúng tôi luôn tiên phong trong lĩnh vực xậy dựng website cho các doanh nghiệp và của hàng. Chúng tôi luôn nỗ lực để tạo ra sản phẩm có chất lượng tốt nhất cho khách hàng.</li>
@@ -15,7 +15,7 @@
 				<h4>SẢN PHẨM MỚI NHẤT</h4>
 				<ul>
 					<li>LIÊN HỆ CÔNG TY CỔ PHẦN SPORTSTORE</li>
-					<li>Email: Nhom_5@gmail.com</li>
+					<li>Email: Nhom5@gmail.com</li>
 					<li>Phone: 123456789</li>
 					<li>Chúng tôi luôn tiên phong trong lĩnh vực xậy dựng website cho các doanh nghiệp và của hàng. Chúng tôi luôn nỗ lực để tạo ra sản phẩm có chất lượng tốt nhất cho khách hàng.</li>
 				</ul>
@@ -24,7 +24,7 @@
 				<h4>TIN TỨC MỚI NHẤT</h4>
 				<ul>
 					<li>LIÊN HỆ CÔNG TY CỔ PHẦN SPORTSTORE</li>
-					<li>Email: Nhom_5com@gmail.com</li>
+					<li>Email: Nhom5com@gmail.com</li>
 					<li>Phone: 123456789</li>
 					<li>Chúng tôi luôn tiên phong trong lĩnh vực xậy dựng website cho các doanh nghiệp và của hàng. Chúng tôi luôn nỗ lực để tạo ra sản phẩm có chất lượng tốt nhất cho khách hàng.</li>
 				</ul>
