@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 10, 2021 lúc 04:09 PM
--- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 8.0.12
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th6 21, 2022 lúc 08:01 AM
+-- Phiên bản máy phục vụ: 8.0.17
+-- Phiên bản PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,7 +32,7 @@ CREATE TABLE `brands` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `mota` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `brands`
@@ -54,7 +55,7 @@ CREATE TABLE `carts` (
   `product_price` varchar(50) NOT NULL,
   `product_image` varchar(255) NOT NULL,
   `product_quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `carts`
@@ -72,7 +73,7 @@ INSERT INTO `carts` (`id`, `product_name`, `product_id`, `product_price`, `produ
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `categories`
@@ -103,8 +104,8 @@ CREATE TABLE `feedback` (
   `note` varchar(100) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `status` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,7 @@ CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `thumbnail` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,7 @@ CREATE TABLE `orders` (
   `order_date` datetime NOT NULL,
   `status` int(11) NOT NULL,
   `total_money` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `orders`
@@ -169,7 +170,7 @@ CREATE TABLE `order_details` (
   `price` int(11) NOT NULL,
   `num` int(11) NOT NULL,
   `total_money` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `order_details`
@@ -200,13 +201,13 @@ CREATE TABLE `products` (
   `discount` int(255) DEFAULT NULL,
   `image` varchar(100) NOT NULL,
   `brand` varchar(50) DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `description` text,
   `quantity` int(11) NOT NULL,
   `active` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `deleted` int(11) NOT NULL DEFAULT 0 COMMENT 'Xoá mềm ( mặc định là 0)'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `deleted` int(11) NOT NULL DEFAULT '0' COMMENT 'Xoá mềm ( mặc định là 0)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
@@ -256,7 +257,7 @@ INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `discount`, `image
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `roles`
@@ -264,7 +265,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`) VALUES
 (1, 'Admin'),
-(2, 'Nhân viên');
+(2, 'Nhân viên'),
+(3, 'Khách hàng');
 
 -- --------------------------------------------------------
 
@@ -277,8 +279,8 @@ CREATE TABLE `sliders` (
   `image` varchar(100) NOT NULL,
   `title` varchar(70) NOT NULL,
   `content` varchar(100) NOT NULL,
-  `active` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `active` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `sliders`
@@ -299,7 +301,7 @@ CREATE TABLE `tokens` (
   `user_id` int(11) NOT NULL,
   `token` varchar(32) NOT NULL,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tokens`
@@ -324,6 +326,8 @@ INSERT INTO `tokens` (`user_id`, `token`, `created_at`) VALUES
 (1, 'cb7d23d0441f849337efed0c22c17830', '2021-10-30 03:18:05'),
 (1, 'ee4738999d0e3ea199fb871bc96340c1', '2021-10-28 14:08:47'),
 (1, 'fb78230c3c129a0c5e22099339a4abd5', '2021-10-29 09:05:21'),
+(6, '8945b729517f0feb86377f80d4e67b83', '2022-06-21 07:35:52'),
+(7, '15d872a23fdb9a8101f2cde0959b7b18', '2022-06-21 07:47:19'),
 (12, '181078a30af3f528869514b78f40bb2b', '2021-10-30 14:24:41'),
 (13, 'af08e39cb4fb5f11417b6bc89eef6114', '2021-10-30 14:25:14'),
 (15, '463d15ae36b5deda07d258a98582611b', '2021-11-10 15:17:36'),
@@ -347,32 +351,21 @@ CREATE TABLE `users` (
   `role_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `deleted` int(11) NOT NULL DEFAULT 0,
+  `deleted` int(11) NOT NULL DEFAULT '0',
   `avatar` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `phone_number`, `address`, `password`, `role_id`, `created_at`, `updated_at`, `deleted`, `avatar`) VALUES
-(1, 'Thuận Nguyễn', 'thuan@gmail.com', '0123456789', '', '', 1, '2021-10-28 06:51:13', '2021-11-08 05:56:35', 0, 'assets/photos/270187.jpg'),
-(2, 'anhdepzai', 'thuan123@gmail.com', NULL, NULL, 'e6a109a81bb3c1c4a7f63fbfe4f1c48f', 2, '2021-10-28 06:52:43', '2021-11-04 03:51:45', 1, NULL),
-(3, 'baby123', 'thuanbin1102@gmail.com', NULL, NULL, 'e6a109a81bb3c1c4a7f63fbfe4f1c48f', 2, '2021-10-29 06:26:47', '2021-10-30 14:02:49', 1, NULL),
-(4, 'thuans', 'minhngoc1102@gmail.com', NULL, NULL, 'e6a109a81bb3c1c4a7f63fbfe4f1c48f', 2, '2021-10-29 06:28:22', '2021-10-30 14:02:52', 1, NULL),
-(5, 'thuans', 'minhngoc1102@gmail.com21', NULL, NULL, 'e6a109a81bb3c1c4a7f63fbfe4f1c48f', 2, '2021-10-29 06:29:24', '2021-10-30 14:01:42', 1, NULL),
-(6, 'thuans', 'thuan123123@gmail.com', 'asdasdasdsadad', '3', '0e6f6f594b8c3fb93335c4522b761b29', 1, '2021-10-30 07:59:37', '2021-10-30 07:59:37', 0, NULL),
-(7, 'thuans', 'thuan1231233223323@gmail.com', 'asdasdasdsadad', '3', '0e6f6f594b8c3fb93335c4522b761b29', 1, '2021-10-30 08:01:38', '2021-10-30 08:01:38', 0, NULL),
-(8, 'thuans', 'thuan12312332233235ggbgbgbgbgb@gmail.com', 'asdasdasdsadad', '3', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-10-30 08:02:47', '2021-11-04 03:51:44', 1, NULL),
-(9, 'thuans', 'basdasdy@gmail.com', 'asdasdasdsadad', '3', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-10-30 08:03:37', '2021-11-04 03:51:43', 1, NULL),
-(10, 'sđs', 'xzczxc@gmail.com', 'asdasdasdsadad', 'dsa', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-10-30 08:49:09', '2021-11-04 03:51:42', 1, NULL),
-(11, 'asashin', 'ken@gmail.com', NULL, NULL, 'e6a109a81bb3c1c4a7f63fbfe4f1c48f', 2, '2021-10-30 14:18:21', '2021-11-04 03:51:41', 1, NULL),
-(12, 'nam', 'zxc@gmail.com', NULL, NULL, '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-10-30 14:19:40', '2021-11-04 03:51:40', 1, NULL),
-(13, 'neymả', 'tanh@gmail.com', NULL, NULL, '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-10-30 14:25:07', '2021-11-04 03:51:39', 1, NULL),
-(14, 'Thuận Nguyễn', 'thuanbin1108@gmail.com', '06545446', 'Hà Nội', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-04 03:53:50', '2021-11-04 03:54:06', 0, NULL),
-(15, 'Tam', 'doantam01@gmail', '', '', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-05 01:19:38', '2021-11-10 15:18:44', 0, 'assets/photos/251999233_1239656816530067_7244606991173517546_n.jpg'),
-(16, 'Vũ Viết Chiến', 'vuvietchien07042001@gmail.com', NULL, NULL, '8fa466b953e9025766a08181391b2120', 2, '2021-11-05 17:09:33', '2021-11-05 17:09:33', 0, NULL),
-(17, 'ken', 'ken123@gmail.com', NULL, NULL, '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-08 06:45:35', '2021-11-08 06:45:35', 0, NULL);
+(0, 'Nguyễn Văn Nhật', 'vannhatc15@gmail.com', '1234567890', 'Hà Nội', '123', 2, '2022-06-21 00:00:00', '2022-06-21 00:00:00', 0, NULL),
+(7, 'Nguyễn Văn Nhật', 'admin1@gmail.com', 'asdasdasdsadad', '3', '0e6f6f594b8c3fb93335c4522b761b29', 1, '2021-10-30 08:01:38', '2022-06-21 07:48:40', 0, ''),
+(14, 'Nguyễn Văn Toàn', 'toan@gmail.com', '06545446', 'Hà Nội', '778fc4b5c832ab443159e03f64ceafa6', 2, '2021-11-04 03:53:50', '2022-06-21 07:37:39', 0, 'assets/photos/6.jpg'),
+(15, 'Trịnh Thái Quảng', 'Quang@gmail.com', '1234567890', 'Hà Nội', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-05 01:19:38', '2022-06-21 07:41:12', 0, 'assets/photos/logo-android.png'),
+(16, 'Đỗ Viết Thịnh', 'thinh@gmail.com', '1234567890', 'Hà Nội', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-05 17:09:33', '2022-06-21 07:39:07', 0, 'assets/photos/153012719_1486087808402746_6500627762640968925_n.jpg'),
+(17, 'Quản Thế Vinh', 'vinh@gmail.com', '1234567890', 'Hà Nội', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-08 06:45:35', '2022-06-21 07:43:15', 0, '');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -511,48 +504,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT cho bảng `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT cho bảng `sliders`
---
-ALTER TABLE `sliders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT cho bảng `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- Các ràng buộc cho các bảng đã đổ
---
-
---
--- Các ràng buộc cho bảng `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `fk_order_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Các ràng buộc cho bảng `order_details`
---
-ALTER TABLE `order_details`
-  ADD CONSTRAINT `fk_orderdetail_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-  ADD CONSTRAINT `fk_orderdetail_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
-
---
--- Các ràng buộc cho bảng `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `fk_product_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
-
---
--- Các ràng buộc cho bảng `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `fk_user_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
