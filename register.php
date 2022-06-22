@@ -1,22 +1,9 @@
 <?php
 require_once('layouts/header.php');
-session_start();
-$conn = mysqli_connect("localhost", "root", "12345678", "sportstore") or die($conn);
 
-if (isset($_POST['submit'])){
-
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-
-$query = mysqli_query($conn, "INSERT INTO users_khach (name, email, password) VALUES ('$name', '$email', '$password')");
-echo '<script>alert("Đăng ký thành công")</script>';
-header("location:http://localhost/Web_BanHang_PHP");
-
-}
 ?>
 <div class="container"  style="margin-top: 20px; margin-bottom: 20px; margin-left: 450px;">
-	<form method="post" action="">
+	<form method="post" action="sol_register.php">
 		<div class="row" width="100%">
 			<div class="col-md-6" width="100%" align="center">
 			<div class="form-group">

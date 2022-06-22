@@ -207,14 +207,11 @@ if(!isset($_SESSION["isLogin"]) || empty($_SESSION["isLogin"])){
 					}
 					else{
 						echo '
-						<img src="http://windows79.com/wp-content/uploads/2021/02/Thay-the-hinh-dai-dien-tai-khoan-nguoi-dung-mac.png" alt="">
+						<img src="assets/photos/Thay-the-hinh-dai-dien-tai-khoan-nguoi-dung-mac.png" alt="">
 						<div class="name">TÀI KHOẢN</d>
 						<ul class="nav-item-sub">
 							<li>
-								<a href="#">Thông tin cá nhân</a>
-							</li>
-							<li>
-								<a href="http://localhost/Web_BanHang_PHP/logout.php">Đăng suất</a>
+								<a href="http://localhost/Web_BanHang_PHP/logout.php" style="color:red;">Đăng suất</a>
 							</li>
 						</ul>';
 					}

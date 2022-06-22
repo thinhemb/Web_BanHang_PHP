@@ -3,7 +3,7 @@ session_start();
 include_once('../utils/utility.php');
 include_once('../db/database.php');
 
-$action = Utility::getPost('action');
+	$action = Utility::getPost('action');
 switch ($action) {
 	case 'cart':
 		addToCart();
