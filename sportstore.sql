@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th6 21, 2022 lúc 08:01 AM
+-- Thời gian đã tạo: Th6 22, 2022 lúc 01:29 PM
 -- Phiên bản máy phục vụ: 8.0.17
 -- Phiên bản PHP: 7.3.10
 
@@ -150,12 +150,13 @@ INSERT INTO `orders` (`id`, `user_id`, `fullname`, `email`, `phone_number`, `add
 (5, 17, 'zxczxc', 'thuanbin1108@gmail.com', '123', 'dsa', 'sadádád', '2021-11-10 03:14:47', 1, 10000),
 (6, 17, 'Laydykil', 'thuan@gmail.com', '123', '12346', 'zXCAASd', '2021-11-10 07:40:44', 1, 10002),
 (7, 17, 'asdasd', 'thuan@gmail.com', '0564651231', 'Đông Anh', 'asd', '2021-11-10 07:47:32', 1, 400000),
-(8, 17, 'asdasd', 'thuan@gmail.com', '213', '321', '231', '2021-11-10 09:41:40', 0, 50000),
-(9, 17, 'thuans', 'thuanbin1102@gmail.com', '0564651231', 'Đông Anh', '21212', '2021-11-10 09:52:18', 0, 50000),
-(10, 17, 'thuans', 'thuanbin1102@gmail.com', '0564651231', 'Đông Anh', '123123213', '2021-11-10 10:02:56', 0, 300000),
-(11, 17, 'Thuận Nguyễn', 'thuanbin1102@gmail.com', '0865532467', 'Đông Anh', '123213', '2021-11-10 10:14:54', 0, 200000),
-(12, 17, 'asdasd', 'thuanbin1102@gmail.com', 'ád', 'sad', 'ssdsd', '2021-11-10 10:17:56', 0, 40000),
-(13, 17, 'baby', 'thuanbin1108@gmail.com', 'sad', 'sad', 'sa', '2021-11-10 10:20:49', 0, 500000);
+(8, 17, 'asdasd', 'thuan@gmail.com', '213', '321', '231', '2021-11-10 09:41:40', 2, 50000),
+(9, 17, 'thuans', 'thuanbin1102@gmail.com', '0564651231', 'Đông Anh', '21212', '2021-11-10 09:52:18', 2, 50000),
+(10, 17, 'thuans', 'thuanbin1102@gmail.com', '0564651231', 'Đông Anh', '123123213', '2021-11-10 10:02:56', 2, 300000),
+(11, 17, 'Thuận Nguyễn', 'thuanbin1102@gmail.com', '0865532467', 'Đông Anh', '123213', '2021-11-10 10:14:54', 2, 200000),
+(12, 17, 'asdasd', 'thuanbin1102@gmail.com', 'ád', 'sad', 'ssdsd', '2021-11-10 10:17:56', 2, 40000),
+(13, 17, 'baby', 'thuanbin1108@gmail.com', 'sad', 'sad', 'sa', '2021-11-10 10:20:49', 2, 500000),
+(14, 7, 'Nguyễn Văn Nhật', 'admin@gmail.com', '0986786149', 'Hà Nội', 'Buy', '2022-06-21 08:33:36', 1, 190000);
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,8 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `price`, `num`, `to
 (6, 5, 22, 10000, 1, 10000),
 (7, 6, 16, 10000, 1, 10000),
 (8, 6, 7, 2, 1, 2),
-(9, 7, 35, 100000, 4, 400000);
+(9, 7, 35, 100000, 4, 400000),
+(10, 14, 13, 190000, 1, 190000);
 
 -- --------------------------------------------------------
 
@@ -265,8 +267,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`) VALUES
 (1, 'Admin'),
-(2, 'Nhân viên'),
-(3, 'Khách hàng');
+(2, 'Nhân viên');
 
 -- --------------------------------------------------------
 
@@ -328,6 +329,7 @@ INSERT INTO `tokens` (`user_id`, `token`, `created_at`) VALUES
 (1, 'fb78230c3c129a0c5e22099339a4abd5', '2021-10-29 09:05:21'),
 (6, '8945b729517f0feb86377f80d4e67b83', '2022-06-21 07:35:52'),
 (7, '15d872a23fdb9a8101f2cde0959b7b18', '2022-06-21 07:47:19'),
+(7, '4223d4c42fbf4862ae07e1229117efd6', '2022-06-22 06:08:44'),
 (12, '181078a30af3f528869514b78f40bb2b', '2021-10-30 14:24:41'),
 (13, 'af08e39cb4fb5f11417b6bc89eef6114', '2021-10-30 14:25:14'),
 (15, '463d15ae36b5deda07d258a98582611b', '2021-11-10 15:17:36'),
@@ -366,6 +368,31 @@ INSERT INTO `users` (`id`, `fullname`, `email`, `phone_number`, `address`, `pass
 (15, 'Trịnh Thái Quảng', 'Quang@gmail.com', '1234567890', 'Hà Nội', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-05 01:19:38', '2022-06-21 07:41:12', 0, 'assets/photos/logo-android.png'),
 (16, 'Đỗ Viết Thịnh', 'thinh@gmail.com', '1234567890', 'Hà Nội', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-05 17:09:33', '2022-06-21 07:39:07', 0, 'assets/photos/153012719_1486087808402746_6500627762640968925_n.jpg'),
 (17, 'Quản Thế Vinh', 'vinh@gmail.com', '1234567890', 'Hà Nội', '0e6f6f594b8c3fb93335c4522b761b29', 2, '2021-11-08 06:45:35', '2022-06-21 07:43:15', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users_khach`
+--
+
+CREATE TABLE `users_khach` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users_khach`
+--
+
+INSERT INTO `users_khach` (`id`, `name`, `email`, `password`) VALUES
+(1, 'Nhật', 'nhat@gmail.com', '123'),
+(3, 'Nguyễn Văn Nhật', 'admin@gmail.com', '123'),
+(6, 'Nguyễn Văn Anh', 'khach@gmail.com', '123'),
+(7, 'Khách hàng ', 'gh@gmail.com', '123'),
+(8, 'Anh Black', 'ablack@gmail.com', '123'),
+(9, 'Trịnh Thái Quảng', 'quangtrinh@gmail.com', '123');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -449,6 +476,12 @@ ALTER TABLE `users`
   ADD KEY `fk_user_role` (`role_id`);
 
 --
+-- Chỉ mục cho bảng `users_khach`
+--
+ALTER TABLE `users_khach`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -486,13 +519,13 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
@@ -505,6 +538,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `users_khach`
+--
+ALTER TABLE `users_khach`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
